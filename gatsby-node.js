@@ -7,8 +7,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   actions.createNodeField({
     node,
-    name: 'articleName',
-    value: createFilePath({ node, getNode }),
+    name: 'slug',
+    value: `post${createFilePath({ node, getNode })}`,
   });
 }
 
@@ -19,10 +19,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark (
+        sort: { fields: [frontmatter___date], order: ASC }
+      ) {
         nodes {
+          id
           fields {
-            articleName
+            slug
           }
         }
       }
@@ -38,17 +41,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const postComponent = path.resolve('./src/templates/Post.tsx');
 
   posts.forEach((post, index) => {
-    const prevArticleName = posts[index - 1]?.fields.articleName ?? null;
-    const nextArticleName = posts[index + 1]?.fields.articleName ?? null;
+    const prevArticleId = posts[index - 1]?.id ?? null;
+    const nextArticleId = posts[index + 1]?.id ?? null;
+
+    console.log('aa', prevArticleId, nextArticleId)
     createPage({
-      path: `/post${post.fields.articleName}`,
+      path: post.fields.slug,
       component: postComponent,
       context: {
-        prevArticleName,
-        articleName: post.fields.articleName,
-        nextArticleName,
+        id: post.id,
+        prevArticleId,
+        nextArticleId,
       }
     });
   });
 }
-
