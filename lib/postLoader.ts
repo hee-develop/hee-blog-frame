@@ -1,3 +1,5 @@
+import fs from 'fs';
+import matter from 'gray-matter';
 import glob from 'glob';
 
 type PostPathType = {
@@ -5,7 +7,21 @@ type PostPathType = {
   fileName: string,
 };
 
-export const getPostPaths = () => {
+export const getPostFile = (fileDir: string) => {
+  return fs.readFileSync(fileDir);
+};
+
+export const getPostData = (post: Buffer) => {
+  const postData = matter(post);
+
+  return {
+    ...postData,
+    title: postData.data.title,
+    date: postData.data.date,
+  };
+};
+
+export const getPostPaths = function() {
   const filePaths = glob.sync('./articles/**/*.md');
   const fileName = filePaths
     .map(fp => fp.match(/\/(\w|-)+\.md$/g)[0])
@@ -21,4 +37,10 @@ export const getPostPaths = () => {
   }
 
   return postPaths;
+};
+
+export const getAllPostData = function() {
+  return getPostPaths()
+    .map(postPath => ({ fileName: postPath.fileName, file: getPostFile(postPath.path) }))
+    .map(({ fileName, file }) => ({ ...getPostData(file), fileName }));
 }
