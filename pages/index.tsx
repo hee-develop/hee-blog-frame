@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
-import Link from 'next/Link';
 import { Layout } from '../components/Layout';
+import { PostCard } from '../components/PostCard';
 import { getAllPostData } from '../lib/postLoader';
 
 type StaticProp = {
@@ -30,14 +30,15 @@ export const getStaticProps: GetStaticProps = async function() {
 export default function Home({ posts } : { posts: StaticProp[] }) {
   return (
     <Layout>
-      {posts.map(post => {
-        return (
-          <div key={post.id}>
-            <Link href={`/posts/${post.id}`}>{post.title}</Link>
-            <div>{post.content}</div>
-          </div>
-        )
-      })}
+      {posts.map(post => (
+        <PostCard
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          writtenIn={post.date}
+          sample={post.content.slice(0, 100)}
+        />
+      ))}
     </Layout>
   )
 }
