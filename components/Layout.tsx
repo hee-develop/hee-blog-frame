@@ -1,6 +1,7 @@
 import { ReactChild } from 'react';
 import HtmlHead from './HtmlHead';
 import Header from './Header';
+import Footer from './Footer';
 import styled from 'styled-components';
 
 type LayoutProps = {
@@ -19,9 +20,7 @@ export function Layout({ children, meta } : LayoutProps) {
 
       <Header />
       <Main>{children}</Main>
-      <footer>
-        2021 hee-develop
-      </footer>
+      <Footer />
     </>
   );
 }
