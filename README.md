@@ -1,3 +1,6 @@
+## 블로그 프레임
+글 작성 레포는 subtree를 이용해 별도로 만듦.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
