@@ -22,7 +22,8 @@ export const getPostData = (post: Buffer) => {
 };
 
 export const getPostPaths = function() {
-  const filePaths = glob.sync('./articles/**/*.md');
+  const articlePath = process.env.ARTICLE_PATH ?? './articles';
+  const filePaths = glob.sync(`${articlePath}/**/*.md`);
   const fileName = filePaths
     .map(fp => fp.match(/\/(\w|-)+\.md$/g)[0])
     .map(res => res.replace(/[\/(.md)]/g, ''));
