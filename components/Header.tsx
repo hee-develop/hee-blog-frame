@@ -5,12 +5,13 @@ const HeadDom = styled.div`
   position: fixed;
   display: flex;
   width: 100%;
-  padding: 0.8em;
+  padding: 0.6em;
   font-family: monospace;
+  align-items: center;
 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 1px #f0f0f0;
+  box-shadow: 0 1px #DDD6;
 `;
 
 const Navigation = styled.nav`
@@ -21,6 +22,12 @@ const PageAnchor = styled.li`
   display: inline;
   list-style: none;
   margin: 0 0.4em;
+  padding: 0.1em;
+  font-size: 0.9em;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const pages: Array<[src: string, pageName: string]> = [
