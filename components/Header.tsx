@@ -7,6 +7,10 @@ const HeadDom = styled.div`
   width: 100%;
   padding: 0.8em;
   font-family: monospace;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px #f0f0f0;
 `;
 
 const Navigation = styled.nav`
