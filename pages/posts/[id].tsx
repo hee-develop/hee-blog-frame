@@ -2,6 +2,8 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { convertMarkdownToHtml } from '../../lib/markdownConverter';
 import { getAllPostData } from '../../lib/postLoader';
 import { Layout } from '../../components/Layout';
+import PostTitle from '../../components/posts/PostTitle';
+import styled from 'styled-components';
 
 export const getStaticPaths: GetStaticPaths = async function() {
   const postData = getAllPostData();
@@ -24,11 +26,28 @@ export const getStaticProps: GetStaticProps = async function({ params: { id }}) 
   };
 }
 
+const PostLayout = styled.div`
+  display: flex;
+`;
+
+const ArticleLayout = styled.article`
+  padding: 0 1.2em;
+`;
+
+const SidebarLayout = styled.aside`
+  min-width: 20%;
+`;
+
 export default function Post({content, data}) {
   return (
     <Layout meta={{}}>
-      <h1>{data.title}</h1>
-      <article dangerouslySetInnerHTML={{__html: content}} />
+      <PostLayout>
+        <ArticleLayout>
+          <PostTitle title={data.title} date={data.date} />
+          <div dangerouslySetInnerHTML={{__html: content}} />
+        </ArticleLayout>
+        <SidebarLayout></SidebarLayout>
+      </PostLayout>
     </Layout>
   );
 }
