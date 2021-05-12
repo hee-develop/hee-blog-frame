@@ -6,6 +6,7 @@
     "dev": "ARTICLE_PATH='./articles' next dev",
     "dep": "ARTICLE_PATH='../articles' next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start"
   },
   "dependencies": {
