@@ -9,13 +9,13 @@ export const getStaticPaths: GetStaticPaths = async function() {
   const postData = getAllPostData();
 
   return {
-    paths: postData.map(data => ({ params: { id: data.fileName }})),
+    paths: postData.map(data => ({ params: { id: data.postName }})),
     fallback: false,
   };
 }
 
 export const getStaticProps: GetStaticProps = async function({ params: { id }}) {
-  const post = getAllPostData().find(({ fileName }) =>  fileName === id);
+  const post = getAllPostData().find(({ postName }) =>  postName === id);
   const convertedContent = await convertMarkdownToHtml(post.content);
 
   return {

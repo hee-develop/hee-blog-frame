@@ -13,7 +13,7 @@ type StaticProp = {
 export const getStaticProps: GetStaticProps = async function() {
   const posts: StaticProp[] = getAllPostData().map(postData => {
     return {
-      id: postData.fileName,
+      id: postData.postName,
       date: postData.date,
       title: postData.title,
       content: postData.content,
