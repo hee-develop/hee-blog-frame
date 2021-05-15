@@ -7,10 +7,12 @@ const HeadDom = styled.div`
   width: 100%;
   padding: 0.6em;
   font-family: monospace;
+  font-size: 1.05rem;
   align-items: center;
 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: #fff3;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 1px #DDD6;
 `;
 
