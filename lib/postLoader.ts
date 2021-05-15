@@ -4,7 +4,7 @@ import glob from 'glob';
 
 type PostPathType = {
   path: string,
-  fileName: string,
+  postName: string,
 };
 
 export const getPostFile = (fileDir: string) => {
@@ -21,27 +21,34 @@ export const getPostData = (post: Buffer) => {
   };
 };
 
+const getFolderName = (pathName: string) => {
+  const splitted = pathName.split('/');
+  if (splitted.length < 2) {
+    return '';
+  }
+
+  return splitted[splitted.length - 2];
+};
+
 export const getPostPaths = function() {
   const articlePath = process.env.ARTICLE_PATH ?? './articles';
   const filePaths = glob.sync(`${articlePath}/**/*.md`);
-  const fileName = filePaths
-    .map(fp => fp.match(/\/(\w|-)+\.md$/g)[0])
-    .map(res => res.replace(/[\/(.md)]/g, ''));
 
+  const pathAndFolderArr = filePaths.map(fp => ({
+    path: fp,
+    folderName: getFolderName(fp)
+  }));
 
-  const postPaths: PostPathType[] = [];
-  for (let i = 0; i < filePaths.length; i++) {
-    postPaths[i] = {
-      path: filePaths[i],
-      fileName: fileName[i],
-    };
-  }
+  const postPaths: PostPathType[] = pathAndFolderArr.map(pathAndFolder => ({
+    path: pathAndFolder.path,
+    postName: pathAndFolder.folderName,
+  }));
 
   return postPaths;
 };
 
 export const getAllPostData = function() {
   return getPostPaths()
-    .map(postPath => ({ fileName: postPath.fileName, file: getPostFile(postPath.path) }))
-    .map(({ fileName, file }) => ({ ...getPostData(file), fileName }));
+    .map(postPath => ({ postName: postPath.postName, file: getPostFile(postPath.path) }))
+    .map(({ postName, file }) => ({ ...getPostData(file), postName }));
 }
