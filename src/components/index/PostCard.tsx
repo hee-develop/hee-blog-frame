@@ -1,4 +1,5 @@
-import Link from './Link';
+import { Link } from 'gatsby';
+import React from 'react';
 import styled from 'styled-components';
 
 type PostSampleProps = {
@@ -49,7 +50,7 @@ const Image = styled.img`
 
 export function PostCard({ id, title, writtenIn, thumbnailSrc, sample } : PostSampleProps) {
   return (
-    <Link href={`/posts/${id}`}>
+    <Link to={`/posts/${id}`}>
       <Card>
         <Layout>
           <Title>{title}</Title>
