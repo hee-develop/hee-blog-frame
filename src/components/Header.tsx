@@ -1,5 +1,6 @@
+import * as React from 'react';
 import styled from 'styled-components';
-import Link from './Link';
+import { Link } from 'gatsby';
 
 const HeadDom = styled.div`
   position: fixed;
@@ -40,11 +41,11 @@ const pages: Array<[src: string, pageName: string]> = [
 export default function Header() {
   return (
     <HeadDom>
-      <Link href={pages[0][0]}>hee dev blog</Link>
+      hee dev blog
       <Navigation>
         {pages.map((page, idx) => (
           <PageAnchor key={idx}>
-            <Link href={page[0]}>{page[1]}</Link>
+            <Link to={page[0]}>{page[1]}</Link>
           </PageAnchor>
         ))}
       </Navigation>
