@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const FooterDom = styled.div`
+  position: fixed;
   display: flex;
   align-content: center;
   width: 100%;

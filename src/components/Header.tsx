@@ -41,7 +41,7 @@ const pages: Array<[src: string, pageName: string]> = [
 export default function Header() {
   return (
     <HeadDom>
-      hee dev blog
+      <Link to="/">hee dev blog</Link>
       <Navigation>
         {pages.map((page, idx) => (
           <PageAnchor key={idx}>

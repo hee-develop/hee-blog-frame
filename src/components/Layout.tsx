@@ -9,7 +9,7 @@ const Main = styled.main`
   padding-top: 80px;
 `;
 
-export function Layout({ pageTitle, children }) {
+export default function Layout({ pageTitle, children }) {
   return (
     <>
       {/* <HtmlHead title={''} meta={{}} /> */}
