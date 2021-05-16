@@ -1,8 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import Footer from './Footer';
 import Header from './Header';
 
-import '../styles/default.css';
+import '../styles/globals.css';
 
 const Main = styled.main`
   padding-top: 80px;
@@ -15,7 +16,7 @@ export function Layout({ pageTitle, children }) {
 
       <Header />
       <Main>{children}</Main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
