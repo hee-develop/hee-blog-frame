@@ -10,6 +10,10 @@ module.exports = {
         trackingId: "-",
       },
     },
+    {
+      resolve: 'gatsby-plugin-typescript',
+      options: { isTSX: true, jsxPragma: 'jsx', allExtensions: true },
+    },
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
