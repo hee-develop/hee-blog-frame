@@ -7,7 +7,12 @@ const Main = styled.main`
   padding-top: 80px;
 `;
 
-export default function Layout({ pageTitle, children }) {
+interface LayoutProp {
+  pageTitle: string;
+  children: React.ReactChild;
+}
+
+export default function Layout({ pageTitle, children }: LayoutProp) {
   return (
     <>
       {/* <HtmlHead title={''} meta={{}} /> */}

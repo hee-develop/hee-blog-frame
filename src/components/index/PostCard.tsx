@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type PostSampleProps = {
-  id: string;
+  path: string;
   title: string;
   writtenIn: string;
   sample?: string;
@@ -48,9 +48,9 @@ const Image = styled.img`
   width: 80px;
 `;
 
-export function PostCard({ id, title, writtenIn, thumbnailSrc, sample } : PostSampleProps) {
+export default function PostCard({ path, title, writtenIn, thumbnailSrc, sample } : PostSampleProps) {
   return (
-    <Link to={`/posts/${id}`}>
+    <Link to={`/posts/${path}`}>
       <Card>
         <Layout>
           <Title>{title}</Title>
