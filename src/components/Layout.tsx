@@ -7,9 +7,9 @@ const Main = styled.main`
   padding-top: 80px;
 `;
 
-interface LayoutProp {
-  pageTitle: string;
-  children: React.ReactChild;
+type LayoutProp = {
+  pageTitle: string
+  children: React.ReactChild | JSX.Element[]
 }
 
 export default function Layout({ pageTitle, children }: LayoutProp) {
