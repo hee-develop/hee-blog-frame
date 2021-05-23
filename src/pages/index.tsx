@@ -31,8 +31,9 @@ export default function Index({ data }: { data: IndexData }) {
 
   return (
     <Layout pageTitle={siteTitle}>
-      {posts.map(post => (
+      {posts.map((post, idx) => (
         <PostCard
+          key={idx}
           path={post.fields.slug}
           title={post.frontmatter.title}
           writtenIn={post.frontmatter.date}
