@@ -50,7 +50,7 @@ const Image = styled.img`
 
 export default function PostCard({ path, title, writtenIn, thumbnailSrc, sample } : PostSampleProps) {
   return (
-    <Link to={`/posts/${path}`}>
+    <Link to={path}>
       <Card>
         <Layout>
           <Title>{title}</Title>
