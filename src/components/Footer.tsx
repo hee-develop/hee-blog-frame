@@ -2,8 +2,6 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const FooterDom = styled.div`
-  position: fixed;
-  bottom: 0;
   background-color: #FAF7F5;
   color: #7a7673;
   display: flex;
