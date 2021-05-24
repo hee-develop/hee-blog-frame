@@ -18,7 +18,19 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
-    "gatsby-transformer-remark",
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1920
+            }
+          }
+        ]
+      }
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
