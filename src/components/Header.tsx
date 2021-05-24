@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 
 const HeadDom = styled.div`
   position: fixed;
+  z-index: 2;
   display: flex;
   width: 100%;
   padding: 0.6em;
@@ -11,7 +12,7 @@ const HeadDom = styled.div`
   font-size: 1.05rem;
   align-items: center;
 
-  background-color: #fff3;
+  background-color: #fff8;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 1px #DDD6;
