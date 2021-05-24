@@ -7,8 +7,12 @@ const FooterDom = styled.div`
   display: flex;
   align-content: center;
   width: 100%;
-  padding: 0.8em;
-  justify-content: center;
+  padding: 1.6em 0.8em;
+  font-size: 0.8em;
+`;
+
+const CopyrightDom = styled.div`
+  margin-left: auto;
 `;
 
 export default function Footer() {
@@ -16,8 +20,9 @@ export default function Footer() {
 
   return (
     <FooterDom>
-      <div>{`© ${systemYear} hee-develop`}</div>
-      <div>&nbsp;via <a href="https://www.gatsbyjs.com">Gatsby</a></div>
+      <CopyrightDom>
+        {`© ${systemYear} hee-develop`}&nbsp;via <a href="https://www.gatsbyjs.com">Gatsby</a>
+      </CopyrightDom>
     </FooterDom>
   );
 }
