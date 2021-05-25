@@ -31,7 +31,7 @@ interface PostProps {
 }
 
 export default function PostNavigator({ prev, next }: PostProps) {
-  if (!(prev && next)) {
+  if (!prev && !next) {
     return <></>;
   }
 

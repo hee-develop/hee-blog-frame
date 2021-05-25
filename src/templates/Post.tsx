@@ -42,7 +42,7 @@ export default function Post({ data }) {
 export const postQuery = graphql`
   query PostBySlug(
     $id: String!
-    $prevArticleId: String
+    $prevPostId: String
     $nextPostId: String
   ) {
     markdownRemark(id: { eq: $id }) {
@@ -52,7 +52,7 @@ export const postQuery = graphql`
       }
     }
 
-    previous: markdownRemark(id: { eq: $prevArticleId }) {
+    previous: markdownRemark(id: { eq: $prevPostId }) {
       fields {
         slug
       }
