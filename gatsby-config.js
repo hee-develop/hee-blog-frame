@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "hee dev blog",
+    siteUrl: 'https://hee-develop.github.io/',
   },
   plugins: [
     "gatsby-plugin-styled-components",
