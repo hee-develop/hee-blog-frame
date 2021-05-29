@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import PostTitle from '../components/posts/PostTitle'
 import PostNavigator, { AnotherArticle } from '../components/posts/PostNavigator';
+import TableOfContents from '../components/posts/TableOfContents';
 
 const PostLayout = styled.div`
   display: flex;
@@ -41,6 +42,7 @@ export default function Post({ data }: PostProps) {
   const post = data.article;
   const postDetails = post.frontmatter;
   const { previous: prevArticle, next: nextArticle } = data;
+  const tableOfContents = data.toc.tableOfContents;
 
   return (
     <Layout
@@ -52,7 +54,9 @@ export default function Post({ data }: PostProps) {
           <div dangerouslySetInnerHTML={{__html: post.html}} />
           <PostNavigator prev={prevArticle} next={nextArticle} />
         </ArticleLayout>
-        <SidebarLayout></SidebarLayout>
+        <SidebarLayout>
+          <TableOfContents tocHtml={tableOfContents} />
+        </SidebarLayout>
       </PostLayout>
     </Layout>
   );
@@ -70,6 +74,9 @@ export const postQuery = graphql`
         title
         date
       }
+    }
+    toc: markdownRemark(id: { eq: $id }) {
+      tableOfContents
     }
 
     previous: markdownRemark(id: { eq: $prevPostId }) {
