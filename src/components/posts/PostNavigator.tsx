@@ -16,7 +16,7 @@ const Line = styled.div`
   margin: 1em 0.2em;
 `;
 
-type AnotherArticle = {
+export type AnotherArticle = {
   fields: {
     slug: string
   }

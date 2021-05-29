@@ -3,7 +3,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import PostTitle from '../components/posts/PostTitle'
-import PostNavigator from '../components/posts/PostNavigator';
+import PostNavigator, { AnotherArticle } from '../components/posts/PostNavigator';
 
 const PostLayout = styled.div`
   display: flex;
@@ -15,13 +15,32 @@ const ArticleLayout = styled.article`
 
 const SidebarLayout = styled.aside`
   min-width: 20%;
+  padding: 0.2em 0.6em;
 `;
 
-export default function Post({ data }) {
-  const post = data.markdownRemark;
-  const postDetails = post.frontmatter;
+interface PostProps {
+  data: {
+    article: {
+      html: string
+      frontmatter: {
+        title: string
+        date: string
+      }
+    }
 
-  const { previous, next } = data;
+    toc: {
+      tableOfContents: string
+    }
+
+    previous: AnotherArticle
+    next: AnotherArticle
+  }
+}
+
+export default function Post({ data }: PostProps) {
+  const post = data.article;
+  const postDetails = post.frontmatter;
+  const { previous: prevArticle, next: nextArticle } = data;
 
   return (
     <Layout
@@ -31,7 +50,7 @@ export default function Post({ data }) {
         <ArticleLayout>
           <PostTitle title={postDetails.title} date={postDetails.date} />
           <div dangerouslySetInnerHTML={{__html: post.html}} />
-          <PostNavigator prev={previous} next={next} />
+          <PostNavigator prev={prevArticle} next={nextArticle} />
         </ArticleLayout>
         <SidebarLayout></SidebarLayout>
       </PostLayout>
@@ -45,10 +64,11 @@ export const postQuery = graphql`
     $prevPostId: String
     $nextPostId: String
   ) {
-    markdownRemark(id: { eq: $id }) {
+    article: markdownRemark(id: { eq: $id }) {
       html,
       frontmatter {
         title
+        date
       }
     }
 
