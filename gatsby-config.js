@@ -28,7 +28,16 @@ module.exports = {
             options: {
               maxWidth: 1920
             }
-          }
+          },
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              removeAccents: true,
+              isIconAfterHeader: true,
+              elements: ['h1','h2'],
+            }
+          },
+          'gatsby-remark-prismjs',
         ]
       }
     },
