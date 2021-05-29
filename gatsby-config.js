@@ -30,6 +30,15 @@ module.exports = {
             }
           },
           {
+            resolve: 'gatsby-remark-table-of-contents',
+            options: {
+              tight: true,
+              ordered: true,
+              fromHeading: 1,
+              toHeading: 3,
+            },
+          },
+          {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
               removeAccents: true,
