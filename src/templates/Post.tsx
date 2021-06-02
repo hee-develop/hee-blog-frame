@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import PostTitle from '../components/posts/PostTitle'
 import PostNavigator, { AnotherArticle } from '../components/posts/PostNavigator';
-import TableOfContents from '../components/posts/TableOfContents';
+import PostSidebar from '../components/posts/PostSidebar';
 
 const PostLayout = styled.div`
   display: flex;
@@ -12,11 +12,6 @@ const PostLayout = styled.div`
 
 const ArticleLayout = styled.article`
   padding: 0 1.2em;
-`;
-
-const SidebarLayout = styled.aside`
-  min-width: 20%;
-  padding: 0.2em 0.6em;
 `;
 
 interface PostProps {
@@ -54,9 +49,10 @@ export default function Post({ data }: PostProps) {
           <div dangerouslySetInnerHTML={{__html: post.html}} />
           <PostNavigator prev={prevArticle} next={nextArticle} />
         </ArticleLayout>
-        <SidebarLayout>
-          <TableOfContents tocHtml={tableOfContents} />
-        </SidebarLayout>
+
+        <PostSidebar
+          tocHtml={tableOfContents}
+        />
       </PostLayout>
     </Layout>
   );
