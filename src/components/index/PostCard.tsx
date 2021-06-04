@@ -10,18 +10,19 @@ type PostSampleProps = {
   thumbnailSrc?: string;
 }
 
-const BORDER_RADIUS = '4px';
+const BORDER_RADIUS = 4;
 
 const Card = styled.div`
-  display: flex;
-  border-radius: ${BORDER_RADIUS};
+  display: grid;
+  grid-template-columns: 90% 10%;
+  max-height: 12em;
+  border-radius: ${`${BORDER_RADIUS}px`};
   margin: 0.6em 0.4em;
-  padding: 0.6em 1em;
   border: 1px solid #DDD;
 `;
 
 const Layout = styled.div`
-  width: 100%;
+  padding: 0.6em 1em;
 `;
 
 const Title = styled.h2`
@@ -45,9 +46,11 @@ const WrittenIn = styled.span`
 `;
 
 const Image = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  border-top-right-radius: ${`${BORDER_RADIUS - 1}px`};
+  border-bottom-right-radius: ${`${BORDER_RADIUS - 1}px`};
 `;
 
 export default function PostCard({ path, title, writtenIn, thumbnailSrc, sample } : PostSampleProps) {
