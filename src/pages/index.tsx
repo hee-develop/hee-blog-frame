@@ -23,6 +23,7 @@ type IndexData = {
         thumbnail?: {
           publicURL: string
         }
+        description: string
       }
     }>
   }
@@ -52,6 +53,7 @@ export default function Index({ data }: { data: IndexData }) {
               path={path}
               title={meta.title}
               writtenIn={meta.date}
+              sample={meta.description}
               {...thumbnailSrc}
             />
           );
@@ -82,6 +84,7 @@ export const query = graphql`
           thumbnail {
             publicURL
           }
+          description
         }
       }
     }

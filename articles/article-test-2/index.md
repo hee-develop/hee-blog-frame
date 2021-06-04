@@ -2,6 +2,7 @@
 title: Test article 2
 date: '2000-01-02'
 thumbnail: './img01.jpg'
+description: Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
 ---
 
 # Lorem ipsum

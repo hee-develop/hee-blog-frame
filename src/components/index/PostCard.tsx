@@ -31,15 +31,15 @@ const Title = styled.h2`
 `;
 
 const Sample = styled.p`
-  margin-top: 0.6em;
-  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.6em;
   font-size: 0.9em;
   color: #777;
 `;
 
 const WrittenIn = styled.span`
   display: block;
-  margin-top: 0.4em;
+  margin-top: 0.2em;
   font-size: 0.8em;
   color: #AAA;
 `;
