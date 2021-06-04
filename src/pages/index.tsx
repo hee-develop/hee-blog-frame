@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from '../components/Layout'
 import PostCard from '../components/index/PostCard';
+import styled from 'styled-components';
 
 type IndexData = {
   site: {
@@ -19,11 +20,19 @@ type IndexData = {
       frontmatter: {
         date: string
         title: string
-        // descrpition
+        thumbnail?: {
+          publicURL: string
+        }
       }
     }>
   }
 }
+
+const CardListLayout = styled.div`
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+`;
 
 export default function Index({ data }: { data: IndexData }) {
   const siteTitle = data.site.siteMetadata?.title ?? 'hee dev blog';
@@ -31,14 +40,23 @@ export default function Index({ data }: { data: IndexData }) {
 
   return (
     <Layout pageTitle={siteTitle}>
-      {posts.map((post, idx) => (
-        <PostCard
-          key={idx}
-          path={post.fields.slug}
-          title={post.frontmatter.title}
-          writtenIn={post.frontmatter.date}
-        />
-      ))}
+      <CardListLayout>
+        {posts.map((post, idx) => {
+          const path = post.fields.slug;
+          const meta = post.frontmatter;
+          const thumbnailSrc = meta.thumbnail ? { thumbnailSrc: meta.thumbnail.publicURL } : null;
+
+          return (
+            <PostCard
+              key={idx}
+              path={path}
+              title={meta.title}
+              writtenIn={meta.date}
+              {...thumbnailSrc}
+            />
+          );
+        })}
+      </CardListLayout>
     </Layout>
   )
 }
@@ -61,7 +79,9 @@ export const query = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
-          # description
+          thumbnail {
+            publicURL
+          }
         }
       }
     }

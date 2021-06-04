@@ -46,6 +46,8 @@ const WrittenIn = styled.span`
 
 const Image = styled.img`
   width: 80px;
+  height: 80px;
+  object-fit: cover;
 `;
 
 export default function PostCard({ path, title, writtenIn, thumbnailSrc, sample } : PostSampleProps) {
