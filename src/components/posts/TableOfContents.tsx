@@ -18,7 +18,9 @@ const TocStyle = styled.div`
   }
 
   a {
+    display: block;
     position: relative;
+    width: 100%;
     z-index: 0;
     font-size: 0.92em;
     letter-spacing: 0.04em;
@@ -29,10 +31,10 @@ const TocStyle = styled.div`
 
     &::before {
       position: absolute;
-      bottom: 0;
+      bottom: 2px;
       right: 0;
       width: calc(100% + 0.2em);
-      height: 6px;
+      height: 4px;
       content: '';
       background: #7a7673;
       opacity: 0;
@@ -42,17 +44,32 @@ const TocStyle = styled.div`
   }
 `;
 
-const TitleOfToc = styled.span`
-  background-color: #2B2725;
-  color: #FAF7F5;
+const TocTitleLayout = styled.div`
+  display: flex;
+  align-items: center;
+  user-select: none;
+  margin-bottom: 4px;
+`;
+
+const TocTitle = styled.span`
   font-weight: bold;
-  padding: 0.1em 0.2em;
+  min-width: 2.2em;
+  margin-right: 0.2em;
+  letter-spacing: 0.1em;
+`;
+
+const RightLine = styled.div`
+  width: 100%;
+  border-top: 1px solid #2b2725;
 `;
 
 export default function TableOfContents({ tocHtml }: { tocHtml: string }) {
   return (
     <TocStyle>
-      <TitleOfToc>목 차</TitleOfToc>
+      <TocTitleLayout>
+        <TocTitle>목차</TocTitle>
+        <RightLine />
+      </TocTitleLayout>
 
       <div
         dangerouslySetInnerHTML={{__html: tocHtml}}
