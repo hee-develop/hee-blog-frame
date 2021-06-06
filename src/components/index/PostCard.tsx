@@ -19,6 +19,12 @@ const Card = styled.div`
   border-radius: ${`${BORDER_RADIUS}px`};
   margin: 0.6em 0.4em;
   border: 1px solid #DDD;
+  transition: border-color,box-shadow 0.2s ease-in;
+
+  &:hover {
+    border-color: #2B2725;
+    box-shadow: 1px 1px 2px #666564;
+  }
 `;
 
 const Layout = styled.div`
