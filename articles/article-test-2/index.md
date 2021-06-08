@@ -1,6 +1,8 @@
 ---
 title: Test article 2
-date: '2000-01-01'
+date: '2000-01-02'
+thumbnail: './img01.jpg'
+description: Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
 ---
 
 # Lorem ipsum
@@ -9,7 +11,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dolor lacu
 
 ![](./img01.jpg)
 
-Curabitur arcu lectus, commodo eget laoreet in, faucibus ut est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean luctus libero vitae arcu luctus vulputate. Nunc in nisl a tellus efficitur finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin mauris id quam efficitur suscipit. Vestibulum porta, ligula id vestibulum lobortis, mi eros mollis lorem, eget vulputate ante quam et diam. Mauris id urna a tellus ornare congue. Etiam in tellus hendrerit, tempor dolor eu, iaculis nibh. Cras vitae pharetra enim, sit amet tincidunt risus. Phasellus mattis, purus non gravida egestas, quam velit volutpat nulla, eu auctor est lorem luctus eros. Nullam in dictum est. Aliquam molestie dictum felis, vitae varius eros ultrices et. Donec nec rutrum risus. Ut sagittis sed magna nec porta. Praesent id lacus nisi.
+## Hello world
+
+**Curabitur** arcu lectus, commodo eget laoreet in, faucibus ut est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean luctus libero vitae arcu luctus vulputate. Nunc in nisl a tellus efficitur finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin mauris id quam efficitur suscipit.
+
+### Veritas
+
+Vestibulum porta, ligula id vestibulum lobortis, mi eros mollis lorem, eget vulputate ante quam et diam. Mauris id urna a tellus ornare congue. Etiam in tellus hendrerit, tempor dolor eu, iaculis nibh. Cras vitae pharetra enim, sit amet tincidunt risus. Phasellus mattis, purus non gravida egestas, quam velit volutpat nulla, eu auctor est lorem luctus eros. Nullam in dictum est. Aliquam molestie dictum felis, vitae varius eros ultrices et. Donec nec rutrum risus. Ut sagittis sed magna nec porta. Praesent id lacus nisi.
+
+> apple is banana and carrot is not donut
+
+```typescript
+console.log('hola!');
+```
 
 Integer ante leo, congue sed sagittis eget, tempor vel ligula. In quis sapien in urna feugiat tincidunt id vel erat. Suspendisse ante sapien, cursus et magna vulputate, tincidunt vestibulum est. Nullam sodales augue libero, ut suscipit mi elementum sed. Duis congue massa in justo ultrices, vel dignissim enim vestibulum. Nullam vel iaculis ex, in bibendum mauris. Sed lacinia cursus risus vitae aliquet. Phasellus posuere ultrices mauris.
 

@@ -1,8 +1,10 @@
+import * as React from 'react';
 import styled from 'styled-components';
-import Link from './Link';
+import { Link } from 'gatsby';
 
 const HeadDom = styled.div`
   position: fixed;
+  z-index: 2;
   display: flex;
   width: 100%;
   padding: 0.6em;
@@ -10,7 +12,7 @@ const HeadDom = styled.div`
   font-size: 1.05rem;
   align-items: center;
 
-  background-color: #fff3;
+  background-color: #fff8;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 1px #DDD6;
@@ -40,11 +42,11 @@ const pages: Array<[src: string, pageName: string]> = [
 export default function Header() {
   return (
     <HeadDom>
-      <Link href={pages[0][0]}>hee dev blog</Link>
+      <Link to="/">hee dev blog</Link>
       <Navigation>
         {pages.map((page, idx) => (
           <PageAnchor key={idx}>
-            <Link href={page[0]}>{page[1]}</Link>
+            <Link to={page[0]}>{page[1]}</Link>
           </PageAnchor>
         ))}
       </Navigation>
