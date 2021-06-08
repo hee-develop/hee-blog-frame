@@ -1,3 +1,5 @@
+const ARTICLE_PATH = process.env.ARTICLE_PATH || './articles/';
+
 module.exports = {
   siteMetadata: {
     title: "hee dev blog",
@@ -63,7 +65,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
-        path: "./articles/",
+        path: ARTICLE_PATH,
       },
       __key: "pages",
     },
