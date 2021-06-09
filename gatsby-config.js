@@ -2,25 +2,22 @@ const ARTICLE_PATH = process.env.ARTICLE_PATH || './articles/';
 
 module.exports = {
   siteMetadata: {
-    title: "hee dev blog",
+    title: 'hee dev blog',
     siteUrl: 'https://hee-develop.github.io/',
   },
   plugins: [
-    "gatsby-plugin-styled-components",
+    'gatsby-plugin-image',
     {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "-",
-      },
+      resolve: 'gatsby-source-filesystem',
+      options: { name: 'images', path: './src/images/' },
+      __key: 'images',
     },
     {
-      resolve: 'gatsby-plugin-typescript',
-      options: { isTSX: true, jsxPragma: 'jsx', allExtensions: true },
+      resolve: 'gatsby-source-filesystem',
+      options: { name: 'pages', path: ARTICLE_PATH },
+      __key: 'pages',
     },
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-offline",
+
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -28,7 +25,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1920
+              maxWidth: 1024,
             }
           },
           {
@@ -49,25 +46,27 @@ module.exports = {
             }
           },
           'gatsby-remark-prismjs',
+          // `gatsby-remark-copy-linked-files`,
+          // `gatsby-remark-smartypants`,
         ]
       }
     },
-    "gatsby-transformer-sharp",
+
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+
+    'gatsby-plugin-styled-components',
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
+      resolve: 'gatsby-plugin-typescript',
+      options: { isTSX: true, jsxPragma: 'jsx', allExtensions: true },
     },
+
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: ARTICLE_PATH,
-      },
-      __key: "pages",
+      resolve: 'gatsby-plugin-google-analytics',
+      options: { trackingId: '-' },
     },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
   ],
 };
