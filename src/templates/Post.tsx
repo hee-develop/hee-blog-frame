@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import PostTitle from '../components/posts/PostTitle'
 import PostNavigator, { AnotherArticle } from '../components/posts/PostNavigator';
 import PostSidebar from '../components/posts/PostSidebar';
+import MetaType from '../types/meta';
 
 const PostLayout = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ interface PostProps {
       html: string
       frontmatter: {
         title: string
+        description: string
         date: string
       }
     }
@@ -40,9 +42,7 @@ export default function Post({ data }: PostProps) {
   const tableOfContents = data.toc.tableOfContents;
 
   return (
-    <Layout
-      pageTitle={postDetails.title}
-    >
+    <Layout meta={postDetails}>
       <PostLayout>
         <ArticleLayout>
           <PostTitle title={postDetails.title} date={postDetails.date} />
@@ -69,6 +69,7 @@ export const postQuery = graphql`
       frontmatter {
         title
         date
+        description
       }
     }
     toc: markdownRemark(id: { eq: $id }) {

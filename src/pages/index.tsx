@@ -5,12 +5,6 @@ import PostCard from '../components/index/PostCard';
 import styled from 'styled-components';
 
 type IndexData = {
-  site: {
-    siteMetadata: {
-      title: string
-    }
-  }
-
   allMarkdownRemark: {
     nodes: Array<{
       // excerpt
@@ -36,11 +30,10 @@ const CardListLayout = styled.div`
 `;
 
 export default function Index({ data }: { data: IndexData }) {
-  const siteTitle = data.site.siteMetadata?.title ?? 'hee dev blog';
   const posts = data.allMarkdownRemark.nodes;
 
   return (
-    <Layout pageTitle={siteTitle}>
+    <Layout>
       <CardListLayout>
         {posts.map((post, idx) => {
           const path = post.fields.slug;
@@ -65,13 +58,6 @@ export default function Index({ data }: { data: IndexData }) {
 
 export const query = graphql`
   query {
-    # site metadata
-    site {
-      siteMetadata {
-        title
-      }
-    }
-
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
