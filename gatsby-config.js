@@ -1,9 +1,13 @@
 const ARTICLE_PATH = process.env.ARTICLE_PATH || './articles/';
 
+const BLOG_TITLE = 'hee dev blog';
+
 module.exports = {
   siteMetadata: {
-    title: 'hee dev blog',
+    title: BLOG_TITLE,
     siteUrl: 'https://hee-develop.github.io/',
+    description: '공부한 내용 등을 정리한 블로그입니다.',
+    defaultLang: 'ko',
   },
   plugins: [
     'gatsby-plugin-image',
@@ -61,6 +65,18 @@ module.exports = {
       options: { isTSX: true, jsxPragma: 'jsx', allExtensions: true },
     },
 
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: BLOG_TITLE,
+        short_name: 'hee-dev',
+        start_url: '/',
+        // background_color: '',
+        // theme_color: '',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
+      },
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: { trackingId: '-' },
