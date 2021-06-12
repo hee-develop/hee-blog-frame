@@ -14,8 +14,8 @@ const BORDER_RADIUS = 4;
 
 const Card = styled.div`
   display: grid;
-  grid-template-columns: 90% 10%;
-  max-height: 12em;
+  grid-template-columns: 1fr 8em;
+  max-height: 8em;
   border-radius: ${`${BORDER_RADIUS}px`};
   margin: 0.6em 0.4em;
   border: 1px solid #DDD;
