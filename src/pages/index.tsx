@@ -27,6 +27,11 @@ const CardListLayout = styled.div`
   display: grid;
   width: 80%;
   margin: 0 auto;
+
+  ${({ theme }) => theme.media.mobile`
+    width: 100%;
+    font-size: 0.8rem;
+  `}
 `;
 
 export default function Index({ data }: { data: IndexData }) {

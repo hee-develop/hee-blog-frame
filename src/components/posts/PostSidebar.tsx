@@ -5,6 +5,10 @@ import TableOfContents from './TableOfContents';
 const Layout = styled.div`
   min-width: 20%;
   padding: 0.2em 0.6em;
+
+  ${({ theme }) => theme.media.mobile`
+    display: none;
+  `}
 `;
 
 const FloatingSidebar = styled.aside`
