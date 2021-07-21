@@ -46,7 +46,7 @@ module.exports = {
             options: {
               removeAccents: true,
               isIconAfterHeader: true,
-              elements: ['h1','h2'],
+              elements: ['h1','h2', 'h3'],
             }
           },
           {
