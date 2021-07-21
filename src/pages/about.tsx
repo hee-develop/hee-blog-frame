@@ -1,7 +1,8 @@
 import * as React from 'react';
-import Layout from '../components/Layout';
 
-import profileImage from '../images/profile.gif';
+import Layout from '@components/Layout';
+
+import profileImage from '@images/profile.gif';
 
 export default function About() {
   return (

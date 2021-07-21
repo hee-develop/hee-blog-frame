@@ -69,6 +69,15 @@ module.exports = {
       resolve: 'gatsby-plugin-typescript',
       options: { isTSX: true, jsxPragma: 'jsx', allExtensions: true },
     },
+    {
+      resolve: 'gatsby-alias-imports',
+      options: {
+        aliases: {
+          '@components': './src/components/',
+          '@images': './src/images/'
+        }
+      }
+    },
 
     {
       resolve: 'gatsby-plugin-manifest',
