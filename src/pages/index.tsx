@@ -1,8 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Layout from '../components/Layout'
-import PostCard from '../components/index/PostCard';
 import styled from 'styled-components';
+
+import Layout from '@components/Layout';
+import PostCard from '@components/index/PostCard';
 
 type IndexData = {
   allMarkdownRemark: {

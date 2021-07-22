@@ -1,11 +1,11 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
-import PostTitle from '../components/posts/PostTitle'
-import PostNavigator, { AnotherArticle } from '../components/posts/PostNavigator';
-import PostSidebar from '../components/posts/PostSidebar';
-import MetaType from '../types/meta';
+
+import Layout from '@components/Layout';
+import PostTitle from '@components/posts/PostTitle';
+import PostNavigator, { AnotherArticle } from '@components/posts/PostNavigator';
+import PostSidebar from '@components/posts/PostSidebar';
 
 const PostLayout = styled.div`
   display: flex;

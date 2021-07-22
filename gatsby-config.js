@@ -46,7 +46,7 @@ module.exports = {
             options: {
               removeAccents: true,
               isIconAfterHeader: true,
-              elements: ['h1','h2'],
+              elements: ['h1','h2', 'h3'],
             }
           },
           {
@@ -68,6 +68,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-typescript',
       options: { isTSX: true, jsxPragma: 'jsx', allExtensions: true },
+    },
+    {
+      resolve: 'gatsby-alias-imports',
+      options: {
+        aliases: {
+          '@components': './src/components/',
+          '@images': './src/images/'
+        }
+      }
     },
 
     {
