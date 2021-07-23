@@ -1,0 +1,12 @@
+$deviceSizes: (
+  'mobile': 'screen and (max-width: 580px)',
+  'tablet': 'screen and (max-width: 768px)',
+  'desktop': 'screen and (max-width: 1284px)',
+) !default;
+
+// media query mixin
+@mixin mq($deviceSize: 'mobile') {
+  @media #{map-get($deviceSizes, $deviceSize)} {
+    @content;
+  }
+}
