@@ -1,38 +1,31 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
-import styled from 'styled-components';
 
 import Layout from '@components/Layout';
 import PostTitle from '@components/posts/PostTitle';
 import PostNavigator, { AnotherArticle } from '@components/posts/PostNavigator';
 import PostSidebar from '@components/posts/PostSidebar';
 
-const PostLayout = styled.div`
-  display: flex;
-`;
-
-const ArticleLayout = styled.article`
-  padding: 0 1.2em;
-`;
+import '@styles/templates/post.scss';
 
 interface PostProps {
   data: {
     article: {
-      html: string
+      html: string;
       frontmatter: {
-        title: string
-        description: string
-        date: string
-      }
-    }
+        title: string;
+        description: string;
+        date: string;
+      };
+    };
 
     toc: {
-      tableOfContents: string
-    }
+      tableOfContents: string;
+    };
 
-    previous: AnotherArticle
-    next: AnotherArticle
-  }
+    previous: AnotherArticle;
+    next: AnotherArticle;
+  };
 }
 
 export default function Post({ data }: PostProps) {
@@ -43,29 +36,23 @@ export default function Post({ data }: PostProps) {
 
   return (
     <Layout meta={postDetails}>
-      <PostLayout>
-        <ArticleLayout>
+      <div className="post__layout">
+        <article className="post__article-layout">
           <PostTitle title={postDetails.title} date={postDetails.date} />
-          <div dangerouslySetInnerHTML={{__html: post.html}} />
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <PostNavigator prev={prevArticle} next={nextArticle} />
-        </ArticleLayout>
+        </article>
 
-        <PostSidebar
-          tocHtml={tableOfContents}
-        />
-      </PostLayout>
+        <PostSidebar tocHtml={tableOfContents} />
+      </div>
     </Layout>
   );
 }
 
 export const postQuery = graphql`
-  query PostBySlug(
-    $id: String!
-    $prevPostId: String
-    $nextPostId: String
-  ) {
+  query PostBySlug($id: String!, $prevPostId: String, $nextPostId: String) {
     article: markdownRemark(id: { eq: $id }) {
-      html,
+      html
       frontmatter {
         title
         date

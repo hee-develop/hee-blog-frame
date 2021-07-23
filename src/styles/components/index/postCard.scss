@@ -1,0 +1,58 @@
+@import '@styles/_colors.scss';
+@import '@styles/_mixins.scss';
+
+$imageSize: 8em;
+$imageCorderSize: 3px;
+
+.post-card {
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr $imageSize;
+    box-sizing: content-box;
+    max-height: $imageSize;
+    border-radius: 4px;
+    margin: 0.6em 0.4em;
+    border: 1px solid #ddd;
+    transition: border-color, box-shadow 0.2s linear;
+
+    &:hover {
+      box-shadow: 1px 2px 3px #858585;
+    }
+  }
+  &__text-area {
+    padding: 0.6em 1em;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  &__description {
+    margin-top: 0.2em;
+    margin-bottom: 0.6em;
+    max-height: 3em;
+    overflow-y: hidden;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    color: $text400;
+
+    @include mq() {
+      margin-bottom: 0.2em;
+    }
+  }
+  &__written-in {
+    display: block;
+    margin-top: 0.2em;
+    font-size: 0.8em;
+    color: $text200;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: $imageCorderSize;
+    border-bottom-right-radius: $imageCorderSize;
+  }
+}
