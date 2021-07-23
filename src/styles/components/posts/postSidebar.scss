@@ -1,0 +1,18 @@
+@import '@styles/_colors.scss';
+@import '@styles/_mixins.scss';
+
+.post-sidebar {
+  &__layout {
+    min-width: 20%;
+    padding: 0.2em 0.6em;
+
+    @include mq() {
+      display: none;
+    }
+  }
+
+  &__floating-sidebar {
+    position: sticky;
+    top: 60px;
+  }
+}

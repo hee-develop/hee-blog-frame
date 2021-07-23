@@ -1,31 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import TableOfContents from './TableOfContents';
 
-const Layout = styled.div`
-  min-width: 20%;
-  padding: 0.2em 0.6em;
-
-  ${({ theme }) => theme.media.mobile`
-    display: none;
-  `}
-`;
-
-const FloatingSidebar = styled.aside`
-  position: sticky;
-  top: 60px;
-`;
+import '@styles/components/posts/postSidebar.scss';
 
 interface SidebarProps {
-  tocHtml: string
+  tocHtml: string;
 }
 
 export default function PostSidebar({ tocHtml }: SidebarProps) {
   return (
-    <Layout>
-      <FloatingSidebar>
+    <div className="post-sidebar__layout">
+      <aside className="post-sidebar__floating-sidebar">
         <TableOfContents tocHtml={tocHtml} />
-      </FloatingSidebar>
-    </Layout>
+      </aside>
+    </div>
   );
 }

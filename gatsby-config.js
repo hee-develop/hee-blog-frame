@@ -64,7 +64,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
 
-    'gatsby-plugin-styled-components',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-typescript',
       options: { isTSX: true, jsxPragma: 'jsx', allExtensions: true },
@@ -74,6 +74,7 @@ module.exports = {
       options: {
         aliases: {
           '@components': './src/components/',
+          '@styles': './src/styles/',
           '@images': './src/images/'
         }
       }

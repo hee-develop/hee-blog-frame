@@ -1,0 +1,37 @@
+@import '@styles/_colors.scss';
+@import '@styles/_mixins.scss';
+
+.header {
+  &__layout {
+    position: fixed;
+    display: flex;
+    z-index: 2;
+    width: 100%;
+    padding: 0.6em;
+    font-family: monospace;
+    font-size: 1.05rem;
+    align-items: center;
+
+    background-color: #fff8;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 1px #ddd6;
+  }
+
+  &__navigation {
+    display: flex;
+    margin-left: auto;
+  }
+
+  &__anchor {
+    display: inline;
+    list-style: none;
+    margin: 0 0.4em;
+    padding: 0.1em;
+    font-size: 0.9em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,25 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const H1 = styled.h1`
-  margin: 0;
-  font-size: 2em;
-  letter-spacing: 0.01em;
-`;
+import '@styles/components/posts/postTitle.scss';
 
-const WrittenIn = styled.span`
-  display: block;
-  margin-top: 0.4em;
-  margin-left: 0.1em;
-  font-size: 0.8em;
-  color: #AAA;
-`;
-
-export default function PostTitle({ title, date }) {
+export default function PostTitle({
+  title,
+  date,
+}: {
+  title: string;
+  date: string;
+}) {
   return (
     <>
-      <H1>{title}</H1>
-      <WrittenIn>{date}</WrittenIn>
+      <h1 className="post-title__title">{title}</h1>
+      <span className="post-title__written-in">{date}</span>
     </>
   );
 }

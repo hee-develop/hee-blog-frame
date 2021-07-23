@@ -1,0 +1,15 @@
+@import '@styles/_colors.scss';
+@import '@styles/_mixins.scss';
+
+.index {
+  &__card-list-layout {
+    display: grid;
+    width: 80%;
+    margin: 0 auto;
+
+    @include mq() {
+      width: 100%;
+      font-size: 0.8rem;
+    }
+  }
+}
